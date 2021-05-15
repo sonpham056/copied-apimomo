@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="momopayment">
+    <property environment="env"/>
+    <property name="TestAPI.location" value="../../java_test/TestAPI"/>
+    <property name="ECLIPSE_HOME" value="C:/Users/ASUS/eclipse/java-2020-122/eclipse/"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.7"/>
+    <property name="source" value="1.7"/>
+    <path id="Maven Dependencies.libraryclasspath">
+        <pathelement location="C:/Users/ASUS/.m2/repository/org/apache/httpcomponents/httpclient/4.4.1/httpclient-4.4.1.jar"/>
+        <pathelement location="C:/Users/ASUS/.m2/repository/org/apache/httpcomponents/httpcore/4.4.1/httpcore-4.4.1.jar"/>
+        <pathelement location="C:/Users/ASUS/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar"/>
+        <pathelement location="C:/Users/ASUS/.m2/repository/commons-codec/commons-codec/1.9/commons-codec-1.9.jar"/>
+        <pathelement location="C:/Users/ASUS/.m2/repository/com/squareup/okhttp3/okhttp/3.11.0/okhttp-3.11.0.jar"/>
+        <pathelement location="C:/Users/ASUS/.m2/repository/com/squareup/okio/okio/1.14.0/okio-1.14.0.jar"/>
+        <pathelement location="C:/Users/ASUS/.m2/repository/com/google/code/gson/gson/2.8.2/gson-2.8.2.jar"/>
+        <pathelement location="C:/Users/ASUS/.m2/repository/commons-lang/commons-lang/2.0/commons-lang-2.0.jar"/>
+        <pathelement location="C:/Users/ASUS/.m2/repository/commons-io/commons-io/2.4/commons-io-2.4.jar"/>
+        <pathelement location="C:/Users/ASUS/.m2/repository/org/junit/jupiter/junit-jupiter/5.5.0-RC1/junit-jupiter-5.5.0-RC1.jar"/>
+        <pathelement location="C:/Users/ASUS/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.5.0-RC1/junit-jupiter-api-5.5.0-RC1.jar"/>
+        <pathelement location="C:/Users/ASUS/.m2/repository/org/apiguardian/apiguardian-api/1.1.0/apiguardian-api-1.1.0.jar"/>
+        <pathelement location="C:/Users/ASUS/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar"/>
+        <pathelement location="C:/Users/ASUS/.m2/repository/org/junit/platform/junit-platform-commons/1.5.0-RC1/junit-platform-commons-1.5.0-RC1.jar"/>
+        <pathelement location="C:/Users/ASUS/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.5.0-RC1/junit-jupiter-params-5.5.0-RC1.jar"/>
+        <pathelement location="C:/Users/ASUS/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.5.0-RC1/junit-jupiter-engine-5.5.0-RC1.jar"/>
+        <pathelement location="C:/Users/ASUS/.m2/repository/org/junit/platform/junit-platform-engine/1.5.0-RC1/junit-platform-engine-1.5.0-RC1.jar"/>
+        <pathelement location="C:/Users/ASUS/.m2/repository/log4j/log4j/1.2.17/log4j-1.2.17.jar"/>
+        <pathelement location="C:/Users/ASUS/.m2/repository/org/apache/logging/log4j/log4j-iostreams/2.8.2/log4j-iostreams-2.8.2.jar"/>
+        <pathelement location="C:/Users/ASUS/.m2/repository/org/apache/logging/log4j/log4j-api/2.8.2/log4j-api-2.8.2.jar"/>
+        <pathelement location="C:/Users/ASUS/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar"/>
+    </path>
+    <path id="momopayment.classpath">
+        <pathelement location="target/classes"/>
+        <pathelement location="target/test-classes"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <path id="run.Pay (1).classpath">
+        <path refid="momopayment.classpath"/>
+        <path refid="Maven Dependencies.libraryclasspath"/>
+    </path>
+    <target name="init">
+        <mkdir dir="target/classes"/>
+        <mkdir dir="target/test-classes"/>
+        <copy includeemptydirs="false" todir="target/classes">
+            <fileset dir="src/main/java">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="target/classes">
+            <fileset dir="src/main/resources">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+                <exclude name="**"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="target/test-classes">
+            <fileset dir="src/test/java">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="target/classes"/>
+        <delete dir="target/test-classes"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="target/classes" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src/main/java"/>
+            <src path="src/main/resources"/>
+            <exclude name="**"/>
+            <classpath refid="momopayment.classpath"/>
+        </javac>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="target/test-classes" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src/test/java"/>
+            <classpath refid="momopayment.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects">
+        <ant antfile="build.xml" dir="${TestAPI.location}" inheritAll="false" target="clean"/>
+        <ant antfile="build.xml" dir="${TestAPI.location}" inheritAll="false" target="build">
+            <propertyset>
+                <propertyref name="build.compiler"/>
+            </propertyset>
+        </ant>
+    </target>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="Pay (1)">
+        <java classname="com.mservice.pay.Pay" failonerror="true" fork="yes">
+            <classpath refid="run.Pay (1).classpath"/>
+        </java>
+    </target>
+</project>
